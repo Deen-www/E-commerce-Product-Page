@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>E-commerce Website</title>
   
@@ -25,10 +25,16 @@
   <div class ="menu">
      <h1>sneakers</h1>
      
-     <div>
-       <img src="icons/icon-cart.svg" class="cart">
+     <div class="heros-image">
+       
+       <div class="relative">
+        <img src="icons/icon-cart.svg" class="cart">
+        <span class="cart-count"></span>
+       </div>
+
        <img src="images/image-avatar.png" width = 30px>
      </div>
+
   </div>
 
   <!==== This is where cart items will be display ====>
@@ -36,7 +42,7 @@
 
     <h2 class ="headingTwo">Cart</h2>
     <hr>
-    <div class ="empty"></div>
+    <div class ="items">Your cart is empty!</div>
 
   </div>
   
@@ -55,17 +61,20 @@
           <a id="#">About</a>
           <a id="#">Contact</a>
         </div>
-        
-      </div>
+     </div>
       
-      <div class="heros-image">
-        <img src="icons/icon-cart.svg">
-        <img src="images/image-avatar.png">
+      <div class="heros-image" id="heros-image">
+        <div class="relative">
+         <img src="icons/icon-cart.svg" class="cart">
+         <span class="cart-count"></span>
+        </div>
+        <img src="images/image-avatar.png" width="30px">
       </div>
       
     </nav>
-    
+
   </header>
+
   <!==== Heading ends here ====>
   
   <!==== Sidebar ====>
@@ -88,50 +97,100 @@
   <main class="container">
     
     <!====First section====>
-    <section class="first-section">
+    <section class="gallery">
       
-      <div></div>
-      <div></div>
+      <img src="images/image-product-1.jpg" alt="shoe" class="main-image" id="main-image">
+      <button class="prev"><img src="icons/icon-previous.svg" alt=""></button>
+      <button class="next"><img src="icons/icon-next.svg" alt=""></button>
+
+
+      <div class="thumbnails">
+
+        <img src="images/image-product-1-thumbnail.jpg" alt=""  class="thumbnail">
+        <img src="images/image-product-2-thumbnail.jpg" alt=""  class="thumbnail">
+        <img src="images/image-product-3-thumbnail.jpg" alt=""  class="thumbnail">
+        <img src="images/image-product-4-thumbnail.jpg" alt=""  class="thumbnail">
+
+      </div>
       
     </section>
     <!====First-section ends here====>
     
     <!====Second-section====>
-    <section class="second-section">
+    <section class="product-info">
       <!--first div-->
-      <div>
+      <div class="info" >
         
-        <p></p>
-        <h2></h2>
-        <p></p>
+        <p>SNEAKERS COMPANY</p>
+        <h2>Fall Limited Edition Sneakers</h2>
+        <p>These low-profile sneakers are your perfect casual wear companion. 
+          Featuring a durable rubber outer sole,
+          they'll withstand everything the weather
+          can offer.
+        </p>
         
       </div>
       <!--second div-->
-      <div>
+      <div class="price-info">
+
+       <div class="price"> 
+        <h3>$125.00</h3>
+        <p>50%</p>
+      </div>
         
-        <h3></h3>
-        <p></p>
         
         <div>
-          <button></button>
+          <p><del>$250.00</del></p>
         </div>
         
       </div>
       
       <!--third div--->
-      <div>
+      <div class="add-cart-info">
         
-        <!--first div-->
-        <div></div>
-        <!--second div-->
-        <div></div>
+        <div class="quantity">
+          <button><img src="icons/icon-minus.svg" class="minus"></button>
+          <span class="qtn">0</span>
+          <button><img src="icons/icon-plus.svg" class="plus"></button>
+        </div>
+
+
+        <div class="addToCartBtn">
+          <img src="icons/icon-cart.svg" alt="">
+          <button id="button">Add to cart</button>
+        </div>
         
       </div>
+      
+      <!--this display message if quantity is 0-->
+      <p id="message"></p>
       
     </section>
     <!====second section ends here===>
     
   </main>
+
+  <div class="lightbox">
+
+    <div  class="overlay"></div>
+    
+    <div class="lightbox-main-image">
+      <img src="icons/icon-close.svg" alt="" id="close">
+
+       <button id="lightbox-prev"><img src="icons/icon-previous.svg"></button>
+       <img src="images/image-product-1.jpg" alt="" class = "lightbox-image">
+       <button id="lightbox-next"><img src="icons/icon-next.svg"></button>
+
+    </div>
+
+    <div class="lightbox-thumbnails">
+      <img src="images/image-product-1-thumbnail.jpg" alt="" class="lightbox-thumbnail">
+      <img src="images/image-product-2-thumbnail.jpg" alt="" class="lightbox-thumbnail">
+      <img src="images/image-product-3-thumbnail.jpg" alt="" class="lightbox-thumbnail">
+      <img src="images/image-product-4-thumbnail.jpg" alt="" class="lightbox-thumbnail">
+    </div>
+
+  </div>
   
 
   
