@@ -236,6 +236,11 @@ button.addEventListener("click", () => {
    image.id ="cart-product-image";
    let name = document.createElement("p");
    let price = document.createElement("p");
+    // This elements will be inside price
+    let unitPrice = document.createElement("span");
+    let quantityText = document.createElement("span");
+    let totalPrice = document.createElement("strong");
+
    let deleteIcon = document.createElement("img");
    deleteIcon.id ="delete";
    let btn = document.createElement("button");
@@ -243,7 +248,14 @@ button.addEventListener("click", () => {
 
    image.src = product.image;
    name.textContent = product.name;
-   price.textContent = "$" + product.price + ".00 " + "x " + product.quantity + " $" + total + ".00";
+    // price
+    unitPrice.textContent = "$" + product.price + ".00 x ";
+    quantityText.textContent = product.quantity + " ";
+    totalPrice.textContent = "$" + total + ".00";
+    price.appendChild(unitPrice);
+    price.appendChild(quantityText);
+    price.appendChild(totalPrice);
+
    deleteIcon.src = product.deleteIcon;
    btn.textContent = product.button;
 

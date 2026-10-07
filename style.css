@@ -56,14 +56,28 @@ p {
 
 .menu h1 {
   margin-left: 50px;
+  font-size: 24px;
 }
 
-.menu div {
+.heros-image{
   display: flex;
   align-items: center;
   gap: 20px;
   
   margin-right: 20px;
+}
+
+.img-avatar {
+
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border 0.2s ease;
+}
+
+.img-avatar:hover {
+
+  border: 2px solid var(--button-bg);
 }
 
 .relative {
@@ -74,8 +88,8 @@ p {
 .cart-count {
   display: none;
   position: absolute;
-  top: 0;
-  left: auto;
+  bottom: 80%;
+  left: 0;
 
   background: var(--button-bg);
   width: 14px;
@@ -136,6 +150,11 @@ p {
   cursor: pointer;
 }
 
+.cart {
+
+  filter: brightness(0);
+}
+
 /*CartItem heading*/
 .headingTwo {
   padding: 20px 18px;
@@ -173,10 +192,11 @@ p {
   display: block;
   text-decoration: none;
   padding: 10px;
-  font-weight: 700;
-  font-size: 22px;
+  font-weight: 600;
+  font-size: 20px;
   cursor: pointer;
 }
+
 
 /*First section gallery*/
 .thumbnails {
@@ -185,8 +205,12 @@ p {
 
 .main-image {
   width: 100%;
-  position: relative;
   cursor: pointer;
+}
+
+.gallery {
+
+ position: relative;
 }
 
 .gallery button {
@@ -207,15 +231,24 @@ p {
 
 .prev {
   position: absolute;
-  top: 250px;
-  left: 20px;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
 }
 
 
 .next {
   position: absolute;
-  top: 250px;
-  right: 20px;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.next img:hover, .prev img:hover {
+
+  filter: brightness(0) saturate(100%)
+  invert(52%) sepia(96%) saturate(1800%)
+  hue-rotate(355deg) brightness(102%) contrast(102%);
 }
 
 /*Second Section product info*/
@@ -295,15 +328,14 @@ gap: 12px;
 
 .addToCartBtn:hover {
 
-  background: hsl(25, 100%, 94%);
-  opacity: 0.5;
+  background: rgba(238, 168, 141, 0.5);
 }
 
 .addToCartBtn button {
   background: none;
   border: none;
   letter-spacing: 1px;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   cursor: pointer;
 }
@@ -353,6 +385,11 @@ gap: 12px;
   border-radius: 8px;
 } 
 
+.checkout-btn:hover {
+
+  background: rgb(238, 168, 141);
+}
+
 
 
 /*MEDIA QUERY*/
@@ -370,6 +407,10 @@ gap: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    border-bottom: 1px solid hsl(220, 14%, 90%);
+    height: 100px;
+    margin: 0 60px;
   }
 
   .cartItem {
@@ -378,12 +419,6 @@ gap: 12px;
   right: 40px;
 
   margin-inline: 0;
-  }
-
-  header {
-    border-bottom: 1px solid hsl(220, 14%, 90%);
-    height: 60px;
-    margin: 0 60px;
   }
 
   .heading, #heros-image {
@@ -402,7 +437,26 @@ gap: 12px;
   .anchor a {
     padding: 0 20px;
     cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+    color: hsl(220, 13%, 13%);
+    transition: text-shadow 0.3s ease, color 0.3s ease;
   }
+
+  .anchor a:hover {
+
+    color: black;
+  }
+
+   .anchor a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--button-bg);
+   }
 
   /*MAIN CONTENT*/
   .container {
@@ -554,6 +608,7 @@ width: 250px;
  cursor: pointer;
 }
 
+
 #lightbox-next {
 
   position: absolute;
@@ -569,6 +624,13 @@ width: 250px;
   left: -20px;
   transform: translateY(-50%);
   cursor: pointer;
+}
+
+#close:hover, #lightbox-next img:hover, #lightbox-prev img:hover {
+
+  filter: brightness(0) saturate(100%)
+  invert(52%) sepia(96%) saturate(1800%)
+  hue-rotate(355deg) brightness(102%) contrast(102%);
 }
 
 .lightbox.show {
