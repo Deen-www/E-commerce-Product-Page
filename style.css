@@ -399,6 +399,7 @@ gap: 12px;
     display: none;
   }
 
+
   /*NAVBAR*/
   .navbar {
     display: block;
@@ -462,12 +463,12 @@ gap: 12px;
   .container {
 
     display: flex;
-    
     align-items: flex-start;
     gap: 50px;
     width: 100%;
     max-width: 1200px;
     margin: 60px auto;
+    border: 1px solid red;
   }
 
   .gallery {
@@ -491,7 +492,6 @@ gap: 12px;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
-    cursor: pointer;
   }
 
   .thumbnail {
@@ -576,13 +576,15 @@ width: 250px;
 
 .lightbox-image {
   width: 100%;
-  max-width: 500px;
+  max-width: 65vh;
+  object-fit: contain;
   display: block;
   border-radius: 14px;
 }
 
 .lightbox-main-image {
   position: relative;
+  width: 100%;
 }
 
 .lightbox-main-image button {
@@ -603,8 +605,6 @@ width: 250px;
  position: absolute;
  top: -35px;
  right: 0;
- width: 20px;
- height: 20px;
  cursor: pointer;
 }
 
@@ -644,6 +644,7 @@ width: 250px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: min(400px, 90vw);
+  max-height: 95vh;
   transition: 0.3s;
   z-index: 101;
 
@@ -652,13 +653,17 @@ width: 250px;
 .lightbox-thumbnails {
 
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
   
 }
 
 .lightbox-thumbnail {
 
-  width: 70px;
+  width: 18%;
+  max-width: 70px;
+  height: auto;
   border-radius: 14px;
   cursor: pointer;
 }
