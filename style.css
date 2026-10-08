@@ -456,10 +456,6 @@ gap: 12px;
     width: 100%;
     height: 4px;
     background: var(--button-bg);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
    }
 
   /*MAIN CONTENT*/
