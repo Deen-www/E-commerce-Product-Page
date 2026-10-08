@@ -47,15 +47,15 @@ thumbnails.forEach(thumbnail => {
     }
     else if(e.currentTarget === parent.children[1]) {
 
-      mainImage.setAttribute('src', 'images/Image-product-2.jpg');
+      mainImage.setAttribute('src', 'images/image-product-2.jpg');
     }
     else if(e.currentTarget === parent.children[2]) {
 
-      mainImage.setAttribute('src', 'images/Image-product-3.jpg');
+      mainImage.setAttribute('src', 'images/image-product-3.jpg');
     }
     else {
 
-      mainImage.setAttribute('src', 'images/Image-product-4.jpg');
+      mainImage.setAttribute('src', 'images/image-product-4.jpg');
     }
   })
 })
@@ -100,7 +100,7 @@ const overlay = document.querySelector(".overlay");
 mainImage.addEventListener("click", () => {
 
   lightbox.classList.add("show");
-  overlay.classList.add("show")
+  overlay.classList.add("show");
 })
 
 // Let's make the close icon remove the lighbox
@@ -109,7 +109,7 @@ const removeLightbox = document.getElementById("close");
 removeLightbox.addEventListener("click", () => {
 
   lightbox.classList.remove("show");
-  overlay.classList.remove("show")
+  overlay.classList.remove("show");
 })
 
 // Let's get the lightbox prev/next respond to click

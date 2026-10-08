@@ -563,14 +563,15 @@ width: 250px;
   inset: 0;
   background: hsla(0, 0%, 0%, 75%);
   opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 101;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 100;
 }
 
 .overlay.show {
 
   opacity: 1;
-  transition: o.3s;
+  visibility: visible;
 }
 
 .lightbox-image {
@@ -582,7 +583,6 @@ width: 250px;
 
 .lightbox-main-image {
   position: relative;
-  z-index: 101;
 }
 
 .lightbox-main-image button {
@@ -640,10 +640,12 @@ width: 250px;
   gap: 16px;
 
   position: fixed;
-  bottom: 70px;
-  left: 32%;
-  width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(400px, 90vw);
   transition: 0.3s;
+  z-index: 101;
 
 }
 
@@ -651,7 +653,6 @@ width: 250px;
 
   display: flex;
   justify-content: space-evenly;
-  z-index: 102;
   
 }
 
