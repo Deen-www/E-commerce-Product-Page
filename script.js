@@ -31,38 +31,7 @@ cart.addEventListener("click", (e) => {
 })
 
 
-// Let's get the thumbnails respond to click
-const thumbnails = document.querySelectorAll('.thumbnail');
-const mainImage = document.getElementById('main-image');
-
-thumbnails.forEach(thumbnail => {
-
-  thumbnail.addEventListener('click', (e) => {
-
-    const parent = document.querySelector('.thumbnails');
-
-    if(e.currentTarget === parent.children[0]) {
-
-      mainImage.setAttribute('src', 'images/image-product-1.jpg');
-    }
-    else if(e.currentTarget === parent.children[1]) {
-
-      mainImage.setAttribute('src', 'images/image-product-2.jpg');
-    }
-    else if(e.currentTarget === parent.children[2]) {
-
-      mainImage.setAttribute('src', 'images/image-product-3.jpg');
-    }
-    else {
-
-      mainImage.setAttribute('src', 'images/image-product-4.jpg');
-    }
-  })
-})
-
-// Let's get the next and previous icons respond
-const next = document.querySelector('.next');
-const prev = document.querySelector('.prev');
+// let's get the thunbnails and navigation
 
 // Carousel images
 const images = [
@@ -74,12 +43,41 @@ const images = [
 
 let currentIndex = 0;
 
+const lightboxImage = document.querySelector(".lightbox-image");
+const mainImage = document.getElementById('main-image');
+
+//let's define our function
+function updateImage() {
+
+  mainImage.setAttribute("src", images[currentIndex]);
+  lightboxImage.setAttribute("src", images[currentIndex]);
+}
+
+
+// Let's get the main thumbnails respond to click
+const thumbnails = document.querySelectorAll('.thumbnail');
+
+thumbnails.forEach((thumbnail, index) => {
+
+  thumbnail.addEventListener('click', () => {
+   
+    currentIndex = index;
+    updateImage();
+    
+  })
+})
+
+// Let's get the main next and previous icons respond
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
+
+
 next.addEventListener("click", () => {
 
   if(currentIndex < images.length-1) {
 
     currentIndex++;
-    mainImage.setAttribute("src", images[currentIndex]);
+    updateImage();
   }
 })
 
@@ -88,7 +86,7 @@ prev.addEventListener("click", () => {
   if(currentIndex > 0) {
 
     currentIndex--;
-    mainImage.setAttribute("src", images[currentIndex]);
+    updateImage();
   }
 })
 
@@ -115,7 +113,6 @@ removeLightbox.addEventListener("click", () => {
 // Let's get the lightbox prev/next respond to click
 const lightboxNext = document.getElementById("lightbox-next");
 const lightboxPrev = document.getElementById("lightbox-prev");
-const lightboxImage = document.querySelector(".lightbox-image");
 
 
 lightboxNext.addEventListener("click", () => {
@@ -123,7 +120,7 @@ lightboxNext.addEventListener("click", () => {
   if(currentIndex < images.length-1) {
 
     currentIndex++;
-    lightboxImage.setAttribute("src", images[currentIndex])
+    updateImage();
   }
 })
 
@@ -132,38 +129,19 @@ lightboxPrev.addEventListener("click", () => {
   if(currentIndex > 0) {
 
     currentIndex--;
-    lightboxImage.setAttribute("src", images[currentIndex])
+    updateImage();
   }
 })
 
 // Let's get lightbox thumbails respond to click
 const lightboxThumbnails = document.querySelectorAll(".lightbox-thumbnail");
-const parentThumbnails = document.querySelector(".lightbox-thumbnails");
 
-lightboxThumbnails.forEach(lightboxThumbnail => {
+lightboxThumbnails.forEach((lightboxThumbnail, index) => {
 
-  lightboxThumbnail.addEventListener("click", (e) => {
+  lightboxThumbnail.addEventListener("click", () => {
 
-    if(e.currentTarget === parentThumbnails.children[0]) {
-
-      currentIndex = 0;
-      lightboxImage.setAttribute("src", images[currentIndex]);
-    }
-    else if(e.currentTarget === parentThumbnails.children[1]) {
-
-      currentIndex = 1;
-      lightboxImage.setAttribute("src", images[currentIndex]);
-    }
-    else if(e.currentTarget === parentThumbnails.children[2]) {
-
-      currentIndex = 2;
-      lightboxImage.setAttribute("src", images[currentIndex]);
-    }
-    else {
-
-      currentIndex = 3;
-      lightboxImage.setAttribute("src", images[currentIndex]);
-    }
+    currentIndex = index;
+    updateImage();
   })
 })
 
